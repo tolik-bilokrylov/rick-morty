@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Character({ name, status, species, type, gender, img }) {
+function Character({ id, name, status, species, type, gender, img }) {
   return (
-    <div>
+    <div key={id}>
       <p>
         {name}
       </p>

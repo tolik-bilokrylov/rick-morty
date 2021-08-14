@@ -1,146 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import Character from './Character';
+import CharacterForm from './CharactersForm';
 // import CharacterInfo from './CharacterInfo';
 
-// import { getCharacter } from './api/api';
-// import { BASE_URL } from './api/api';
-
-
+import { urlCharacters } from '../../../api/api';
 
 function CharactersList() {
   const [characters, setCharacters] = useState([]);
   const [statusGender, setStatusGender] = useState("all")
   const [statusSpecies, setStatusSpecies] = useState("all")
   const [statusStatus, setStatusStatus] = useState("all")
-  const [filterCharacters, setFilterCharacters] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const url = 'https://rickandmortyapi.com/api/character'
+  let pageCharacters = `${urlCharacters}/?page=${page}`;
   
   useEffect(() => {
-    axios.get(url)
+    axios.get(pageCharacters)
       .then((response) => {
-        console.log(response.data.results);
-        setCharacters(response.data.results)
+        const result = (response.data);
+        setCharacters(result.results)
       })
-  }, [url]);
+  }, [pageCharacters]);
 
-  // useEffect(() => {
-  //   filterByGender();
-  //   filterBySpecies();
-  //   filterByStatus();
-  // }, [characters, statusGender, statusSpecies, statusStatus]);
+  const filterCharacters = useMemo(() => {
+    let result = characters;
 
-  useEffect(() => {
-    filterByGender();
-  }, [characters, statusGender]);
-
-
-  useEffect(() => {
-    filterBySpecies();
-  }, [characters, statusSpecies]);
-
-  useEffect(() => {
-    filterByStatus();
-  }, [characters, statusStatus]);
-
-  console.log(statusGender, statusSpecies, statusStatus);
-
-
-  const filterByGender = () => {
-    switch(statusGender) {
-      case "male":
-        setFilterCharacters(characters.filter(character => character.gender === "Male"));
-        break;
-      case "female":
-        setFilterCharacters(characters.filter(character => character.gender === "Female"));
-        break;
-      default:
-        setFilterCharacters(characters);
-        break; 
+    if (statusGender === "all") {
+      result = result.filter(character => character.gender !== undefined);
     }
-  };
 
-  const filterBySpecies = () => {
-    switch(statusSpecies) {
-      case "human":
-        setFilterCharacters(characters.filter(character => character.species === "Human"));
-        break;
-      case "aline":
-        setFilterCharacters(characters.filter(character => character.species === "Alien"));
-        break;
-      default:
-        setFilterCharacters(characters);
-        break; 
+    if (statusGender === "male") {
+      result = result.filter(character => character.gender === "Male");
     }
-  };
 
-  const filterByStatus = () => {
-    switch(statusStatus) {
-      case "alive":
-        setFilterCharacters(characters.filter(character => character.status === "Alive"));
-        break;
-      case "dead":
-        setFilterCharacters(characters.filter(character => character.status === "Dead"));
-        break;
-      case "unknown":
-        setFilterCharacters(characters.filter(character => character.status === "unknown"));
-        break;
-      default:
-        setFilterCharacters(characters);
-        break; 
+    if (statusGender === "female") {
+      result = result.filter(character => character.gender === "Female");
     }
-  };
-  
-  const statusByGender = (event) => {
-    console.log(event.target.value)
-    setStatusGender(event.target.value)
-  };
-  const statusBySpecies = (event) => {
-    console.log(event.target.value)
-    setStatusSpecies(event.target.value)
-  };
-  const statusByStatus = (event) => {
-    console.log(event.target.value)
-    setStatusStatus(event.target.value)
-  };
+
+    if (statusGender === "unknown") {
+      result = result.filter(character => character.gender === "unknown");
+    }
+
+    if (statusSpecies === "all") {
+      result = result.filter(character => character.species !== undefined);
+    }
+
+    if (statusSpecies === "human") {
+      result = result.filter(character => character.species === "Human");
+    }
+
+    if (statusSpecies === "alien") {
+      result = result.filter(character => character.species === "Alien");
+    }
+
+    if (statusStatus === "all") {
+      result = result.filter(character => character.status !== undefined);
+    }
+
+    if (statusStatus === "dead") {
+      result = result.filter(character => character.status === "Dead");
+    }
+
+    if (statusStatus === "alive") {
+      result = result.filter(character => character.status === "Alive");
+    }
+    
+    if (statusStatus === "unknown") {
+      result = result.filter(character => character.status === "unknown");
+    }
+
+    return result;
+  }, [characters, statusGender, statusSpecies, statusStatus]);
   
   return (
     <>
-      <div className="select">
-        <select
-          onChange={statusByGender}
-          name="characters"
-          className="filter-character"
-        >
-          <option value="all">All</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-      <div className="select">
-        <select
-          onChange={statusBySpecies}
-          name="characters"
-          className="filter-character"
-        >
-          <option value="all">All</option>
-          <option value="human">Human</option>
-          <option value="aline">Alien</option>
-        </select>
-      </div>
-      <div className="select">
-        <select
-          onChange={statusByStatus}
-          name="characters"
-          className="filter-character"
-        >
-          <option value="all">All</option>
-          <option value="dead">Dead</option>
-          <option value="alive">Aliev</option>
-          <option value="unknown">unknown</option>
-        </select>
-      </div>
+      <CharacterForm
+        setStatusGender={setStatusGender}
+        setStatusSpecies={setStatusSpecies}
+        setStatusStatus={setStatusStatus}
+        page={page}
+        setPage={setPage}
+      />
       <div
         className="characters"
       >
