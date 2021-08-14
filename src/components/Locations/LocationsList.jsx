@@ -3,7 +3,7 @@ import axios from 'axios';
 import Location from './Location';
 import LocationsForm from './LocationsForm';
 
-import { urlLocations } from '../../../api/api';
+import { urlLocations } from '../../api/api';
 
 function LocationsList() {
   const [locations, setLocations] = useState([]);

@@ -4,7 +4,7 @@ import Character from './Character';
 import CharacterForm from './CharactersForm';
 // import CharacterInfo from './CharacterInfo';
 
-import { urlCharacters } from '../../../api/api';
+import { urlCharacters } from '../../api/api';
 
 function CharactersList() {
   const [characters, setCharacters] = useState([]);

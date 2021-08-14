@@ -4,7 +4,7 @@ import Episode from './Episode';
 import EpisodesForm from './EpisodesForm';
 // import CharacterInfo from './CharacterInfo';
 
-import { urlEpisodes } from '../../../api/api';
+import { urlEpisodes } from '../../api/api';
 
 function EpisodessList() {
   const [episodes, setEpisodes] = useState([]);
