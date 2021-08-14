@@ -7,10 +7,6 @@ import Locations from './pages/Locations';
 import MyWatchList from './pages/MyWatchList';
 import './App.css';
 
-
-
-
-
 function App() {
   
   return (
