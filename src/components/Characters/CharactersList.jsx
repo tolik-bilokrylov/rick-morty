@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import Character from './Character';
+import Button from './Button';
 import CharacterForm from './CharactersForm';
 // import CharacterInfo from './CharacterInfo';
+import './CharactersList.css';
 
 import { urlCharacters } from '../../api/api';
 
 function CharactersList() {
   const [characters, setCharacters] = useState([]);
+  const [info, setInfo] = useState({});
   const [statusGender, setStatusGender] = useState("all")
   const [statusSpecies, setStatusSpecies] = useState("all")
   const [statusStatus, setStatusStatus] = useState("all")
@@ -19,7 +22,8 @@ function CharactersList() {
     axios.get(pageCharacters)
       .then((response) => {
         const result = (response.data);
-        setCharacters(result.results)
+        setCharacters(result.results);
+        setInfo(result.info);
       })
   }, [pageCharacters]);
 
@@ -74,16 +78,20 @@ function CharactersList() {
   }, [characters, statusGender, statusSpecies, statusStatus]);
   
   return (
-    <>
+    <div className="field">
+      <Button
+        page={page}
+        setPage={setPage}
+        pages={info.pages}
+        prev={info.prev}
+      />
       <CharacterForm
         setStatusGender={setStatusGender}
         setStatusSpecies={setStatusSpecies}
         setStatusStatus={setStatusStatus}
-        page={page}
-        setPage={setPage}
       />
       <div
-        className="characters"
+        className="container"
       >
         {filterCharacters.map(character => (
           <Character
@@ -97,7 +105,7 @@ function CharactersList() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

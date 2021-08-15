@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import Location from './Location';
 import LocationsForm from './LocationsForm';
+import Button from './Button';
+
+import { Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './LocationList.css';
 
 import { urlLocations } from '../../api/api';
 
 function LocationsList() {
   const [locations, setLocations] = useState([]);
+  const [info, setInfo] = useState({});
   // const [statusGender, setStatusGender] = useState("all")
   // const [statusSpecies, setStatusSpecies] = useState("all")
   // const [statusStatus, setStatusStatus] = useState("all")
@@ -18,7 +24,8 @@ function LocationsList() {
     axios.get(pageLocations)
       .then((response) => {
         const result = (response.data);
-        setLocations(result.results)
+        setLocations(result.results);
+        setInfo(result.info)
       })
   }, [pageLocations]);
 
@@ -71,29 +78,43 @@ function LocationsList() {
 
   //   return result;
   // }, [characters, statusGender, statusSpecies, statusStatus]);
+
+  const headers = ["name", "type", "dimension", "created"]
   
   return (
     <>
+      <Button
+        page={page}
+        setPage={setPage}
+        prev={info.prev}
+        pages={info.pages}
+      />
       <LocationsForm
         // setStatusGender={setStatusGender}
         // setStatusSpecies={setStatusSpecies}
         // setStatusStatus={setStatusStatus}
-        page={page}
-        setPage={setPage}
+        
       />
-      <div
-        className="locations"
-      >
-        {locations.map(location => (
-          <Location
-            key={location.id}
-            name={location.name}
-            type={location.type}
-            dimension={location.dimension}
-            created={location.created}
-          />
-        ))}
-      </div>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            {headers.map(title => (
+              <th style={{textTransform: 'capitalize'}}>
+                {title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {locations.map(location => (
+            <tr>
+              {headers.map(key => (
+                <td>{location[key]}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </>
   );
 };

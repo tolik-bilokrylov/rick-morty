@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LocationsForm({ page, setPage }) {
+function LocationsForm() {
   // const statusByGender = (event) => {
   //   console.log(event.target.value)
   //   setStatusGender(event.target.value)
@@ -45,23 +45,7 @@ function LocationsForm({ page, setPage }) {
         <option value="alive">Aliev</option>
         <option value="unknown">unknown</option>
       </select> */}
-      <button
-        className="button"
-        type="button"
-        disabled={page === 1}
-        onClick={() => setPage(page - 1)}
-      >
-        PRE
-      </button>
-      <button
-        className="button"
-        type="button"
-        disabled={page === 6}
-        onClick={() => setPage(page + 1)}
-      >
-        NEXT
-      </button>
-    </form>
+      </form>
   )
 }
 

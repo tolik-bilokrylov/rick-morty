@@ -1,0 +1,63 @@
+.field {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, 304px);
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 2px solid rgb(95, 95, 116);
+}
+
+.image {
+  background-size: cover;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.select {
+  margin: 0 15px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  color: rgb(39, 66, 66);
+}
+
+.button-container {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  text-transform: uppercase;
+  padding: 7px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid rgb(75, 48, 107);
+  background-color: crimson;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.button:hover {
+  color: crimson;
+  background-color: black;
+}
+
+@media (max-width: 450px) {
+  .form {
+    flex-direction: column;
+  }
+}

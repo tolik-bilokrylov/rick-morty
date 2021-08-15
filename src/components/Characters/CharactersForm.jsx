@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus, page, setPage }) {
+function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus }) {
   const statusByGender = (event) => {
     console.log(event.target.value)
     setStatusGender(event.target.value)
@@ -15,7 +15,7 @@ function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus, pag
   };
 
   return (
-    <form>
+    <form className="form">
       <select
         className="select"
         onChange={statusByGender}
@@ -45,22 +45,6 @@ function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus, pag
         <option value="alive">Aliev</option>
         <option value="unknown">unknown</option>
       </select>
-      <button
-        className="button"
-        type="button"
-        disabled={page === 1}
-        onClick={() => setPage(page - 1)}
-      >
-        PRE
-      </button>
-      <button
-        className="button"
-        type="button"
-        disabled={page === 34}
-        onClick={() => setPage(page + 1)}
-      >
-        NEXT
-      </button>
     </form>
   )
 }

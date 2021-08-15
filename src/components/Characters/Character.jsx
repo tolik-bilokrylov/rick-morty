@@ -2,23 +2,21 @@ import React from 'react';
 
 function Character({ id, name, status, species, type, gender, img }) {
   return (
-    <div key={id}>
-      <p>
+    <div
+      className="card"
+      key={id}
+    >
+      <img
+        className="image"
+        src={img}
+        alt="character"
+      />
+      <h1
+        className="title"
+        style={{color: 'black'}}
+      >
         {name}
-      </p>
-      <p>
-        {status}
-      </p>
-      <p>
-        {species}
-      </p>
-      <p>
-        {type}
-      </p>
-      <p>
-        {gender}
-      </p>
-      <img src={img} alt="character" />
+      </h1>
     </div>
   )
 }
