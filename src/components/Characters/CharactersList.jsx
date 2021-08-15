@@ -3,10 +3,11 @@ import axios from 'axios';
 import Character from './Character';
 import Button from './Button';
 import CharacterForm from './CharactersForm';
-// import CharacterInfo from './CharacterInfo';
+
 import './CharactersList.css';
 
 import { urlCharacters } from '../../api/api';
+
 
 function CharactersList() {
   const [characters, setCharacters] = useState([]);

@@ -21,7 +21,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className={navbar ? 'navbar active' : 'navbar'}>
+      <nav className={navbar ? 'navbar active' : 'navbar'} style={{ position: 'sticky' }}>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Rick and Morty

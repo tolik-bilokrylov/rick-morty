@@ -7,6 +7,8 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
 }
 
@@ -18,13 +20,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 100px;
   max-width: 1400px;
+  
 }
 
 .navbar-logo {
   color: #fff;
-  justify-self: start;
+  justify-content: start;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -50,7 +54,7 @@
 
 .nav-menu {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
@@ -132,6 +136,7 @@
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
+    width: auto;
   }
 
   .menu-icon {
@@ -168,5 +173,22 @@
     background: #fff;
     color: #242424;
     transition: 250ms;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar {
+    align-items: center;
+    text-align: center;
+  }
+  .navbar-logo {
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .navbar-logo {
+    width: 500px;
   }
 }

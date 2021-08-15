@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CharacterInfo from './CharacterInfo';
 
-function Character({ id, name, status, species, type, gender, img }) {
+
+
+function Character({ id, name, img, status, species, type, gender }) {
+  const [modalActive, setModalActive] = useState(false);
+
   return (
     <div
       className="card"
@@ -10,6 +15,7 @@ function Character({ id, name, status, species, type, gender, img }) {
         className="image"
         src={img}
         alt="character"
+        onClick={() => setModalActive(true)}
       />
       <h1
         className="title"
@@ -17,6 +23,17 @@ function Character({ id, name, status, species, type, gender, img }) {
       >
         {name}
       </h1>
+      <CharacterInfo
+        active={modalActive}
+        setActive={setModalActive}
+        key={id}
+        status={status}
+        species={species}
+        type={type}
+        gender={gender}
+        name={name}
+        img={img}
+      />
     </div>
   )
 }
