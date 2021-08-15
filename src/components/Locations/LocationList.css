@@ -18,3 +18,17 @@
   color: crimson;
   background-color: black;
 }
+
+.form-locations {
+  display: flex;
+  justify-content: start;
+  margin: 20px 60px 20px;
+  font-size: 1.2rem;
+  gap: 25px;
+}
+
+@media (max-width: 850px) {
+  .form-locations {
+    flex-direction: column;
+  }
+}

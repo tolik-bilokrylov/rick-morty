@@ -1,10 +1,11 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import EpisodesForm from './EpisodesForm';
 import Button from './Button';
-// import CharacterInfo from './CharacterInfo';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './EpisodesList.css';
 
 import { urlEpisodes } from '../../api/api';
 
@@ -12,6 +13,7 @@ function EpisodessList() {
   const [episodes, setEpisodes] = useState([]);
   const [info, setInfo] = useState({});
   const [page, setPage] = useState(1);
+  const [name, setName] = useState('');
 
   let pageEpisodes = `${urlEpisodes}/?page=${page}`;
   
@@ -24,7 +26,13 @@ function EpisodessList() {
       })
   }, [pageEpisodes]);
 
-  const headers = ["name", "air_date", "episode", "created"]
+  const headers = ["id", "name", "air_date", "episode", "created"]
+  const filterEpisodes = useMemo(() => {
+    let result = episodes;
+    result = result.filter((episode) => episode.name.toLowerCase().includes(name.toLowerCase()));
+
+    return result;
+  }, [episodes, name]);
   
   return (
     <>
@@ -35,21 +43,22 @@ function EpisodessList() {
         pages={info.pages}
       />
       <EpisodesForm
-        
+        name={name}
+        setName={setName}
       />
       <Table striped bordered hover variant="dark">
         <thead>
-          <tr>
+          <tr style={{textTransform: 'capitalize', color: 'yellow'}}>
             {headers.map(title => (
-              <th style={{textTransform: 'capitalize'}}>
+              <th>
                 {title}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {episodes.map(episode => (
-            <tr>
+          {filterEpisodes.map(episode => (
+            <tr key={episode.id}>
               {headers.map(key => (
                 <td>{episode[key]}</td>
               ))}

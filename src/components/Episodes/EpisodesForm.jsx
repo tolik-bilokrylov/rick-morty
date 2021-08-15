@@ -1,14 +1,15 @@
 import React from 'react';
 
-function EpisodesForm() {
-  // const statusByStatus = (event) => {
-  //   console.log(event.target.value)
-  //   setStatusStatus(event.target.value)
-  // };
+function EpisodesForm({ name, setName }) {
 
   return (
-    <form>
-      
+    <form className="form-episodes">
+      <input
+        type="text"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+        placeholder="Search by Name"
+      />
     </form>
   )
 }

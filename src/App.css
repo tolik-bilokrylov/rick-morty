@@ -8,4 +8,6 @@
 
 body {
   background: rgb(230, 225, 218);
+  max-width: 1400px;
+  margin: 0 auto;
 }

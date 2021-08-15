@@ -10,7 +10,7 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const changeBackground = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 100) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -25,7 +25,7 @@ function Navbar() {
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Rick and Morty
-            <i class="fas fa-globe-europe"/>
+            <i className="fas fa-globe-europe"/>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

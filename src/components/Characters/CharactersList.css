@@ -32,7 +32,9 @@
   margin: 0 15px;
   border-radius: 4px;
   font-size: 1.2rem;
-  color: rgb(39, 66, 66);
+  color: black;
+  background-color: crimson;
+  border: 2px solid rgb(75, 48, 107);
 }
 
 .button-container {

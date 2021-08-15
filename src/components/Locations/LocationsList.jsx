@@ -13,9 +13,9 @@ import { urlLocations } from '../../api/api';
 function LocationsList() {
   const [locations, setLocations] = useState([]);
   const [info, setInfo] = useState({});
-  // const [statusGender, setStatusGender] = useState("all")
-  // const [statusSpecies, setStatusSpecies] = useState("all")
-  // const [statusStatus, setStatusStatus] = useState("all")
+  const [name, setName] = useState("")
+  const [type, setType] = useState("")
+  const [dimension, setDimension] = useState("")
   const [page, setPage] = useState(1);
 
   let pageLocations = `${urlLocations}/?page=${page}`;
@@ -29,57 +29,24 @@ function LocationsList() {
       })
   }, [pageLocations]);
 
-  // const filterCharacters = useMemo(() => {
-  //   let result = characters;
+  const filterLocations = useMemo(() => {
+    let result = locations;
+    if (name) {
+      result = result.filter((location) => location.name.toLowerCase().includes(name.toLowerCase()));
+    }
 
-  //   if (statusGender === "all") {
-  //     result = result.filter(character => character.gender !== undefined);
-  //   }
+    if (type) {
+      result = result.filter((location) => location.type.toLowerCase().includes(type.toLowerCase()));
+    }
 
-  //   if (statusGender === "male") {
-  //     result = result.filter(character => character.gender === "Male");
-  //   }
+    if (dimension) {
+      result = result.filter((location) => location.dimension.toLowerCase().includes(dimension.toLowerCase()));
+    }
 
-  //   if (statusGender === "female") {
-  //     result = result.filter(character => character.gender === "Female");
-  //   }
+    return result;
+  }, [locations, name, type, dimension]);
 
-  //   if (statusGender === "unknown") {
-  //     result = result.filter(character => character.gender === "unknown");
-  //   }
-
-  //   if (statusSpecies === "all") {
-  //     result = result.filter(character => character.species !== undefined);
-  //   }
-
-  //   if (statusSpecies === "human") {
-  //     result = result.filter(character => character.species === "Human");
-  //   }
-
-  //   if (statusSpecies === "alien") {
-  //     result = result.filter(character => character.species === "Alien");
-  //   }
-
-  //   if (statusStatus === "all") {
-  //     result = result.filter(character => character.status !== undefined);
-  //   }
-
-  //   if (statusStatus === "dead") {
-  //     result = result.filter(character => character.status === "Dead");
-  //   }
-
-  //   if (statusStatus === "alive") {
-  //     result = result.filter(character => character.status === "Alive");
-  //   }
-    
-  //   if (statusStatus === "unknown") {
-  //     result = result.filter(character => character.status === "unknown");
-  //   }
-
-  //   return result;
-  // }, [characters, statusGender, statusSpecies, statusStatus]);
-
-  const headers = ["name", "type", "dimension", "created"]
+  const headers = ["id", "name", "type", "dimension", "created"]
   
   return (
     <>
@@ -90,24 +57,26 @@ function LocationsList() {
         pages={info.pages}
       />
       <LocationsForm
-        // setStatusGender={setStatusGender}
-        // setStatusSpecies={setStatusSpecies}
-        // setStatusStatus={setStatusStatus}
-        
+        name={name}
+        setName={setName}
+        type={type}
+        setType={setType}
+        dimension={dimension}
+        setDimension={setDimension}
       />
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             {headers.map(title => (
-              <th style={{textTransform: 'capitalize'}}>
+              <th style={{textTransform: 'capitalize', color: 'yellow'}}>
                 {title}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {locations.map(location => (
-            <tr>
+          {filterLocations.map(location => (
+            <tr key={location.id}>
               {headers.map(key => (
                 <td>{location[key]}</td>
               ))}
