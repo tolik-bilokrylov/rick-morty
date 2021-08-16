@@ -96,13 +96,7 @@ export function CharactersList() {
         {filterCharacters.map(character => (
           <Character
             key={character.id}
-            status={character.status}
-            species={character.species}
-            type={character.type}
-            gender={character.gender}
-            name={character.name}
-            img={character.image}
-            location={character.location.name}
+            character={character}
           />
         ))}
       </div>

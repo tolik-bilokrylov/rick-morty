@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CharacterInfo } from './CharacterInfo';
 
-export function Character({ id, name, img, status, species, type, gender, location }) {
+export function Character({ character }) {
   const [modalActive, setModalActive] = useState(false);
-
+  const { id, name, image, status, species, type, gender, location } = character;
   return (
     <div
       className="card"
@@ -11,7 +11,7 @@ export function Character({ id, name, img, status, species, type, gender, locati
     >
       <img
         className="image"
-        src={img}
+        src={image}
         alt="character"
         onClick={() => setModalActive(true)}
       />
@@ -30,8 +30,8 @@ export function Character({ id, name, img, status, species, type, gender, locati
         type={type}
         gender={gender}
         name={name}
-        img={img}
-        location={location}
+        img={image}
+        location={location.name}
       />
     </div>
   )
