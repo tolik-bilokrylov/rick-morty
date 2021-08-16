@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function CharacterInfo({ active, setActive, name, status, species, type, gender, img }) {
+export function CharacterInfo({ active, setActive, name, status, species, type, gender, img, location }) {
   return (
     <div
       className={active ? "modal-character active" : "modal-character"}
@@ -12,17 +12,24 @@ export function CharacterInfo({ active, setActive, name, status, species, type, 
       >
         <img  src={img} alt="character" />
         <h1>{name}</h1>
-        <p className="character-full">
+        <p className={status === "Alive" ? "character-full norm" : "character-full bad"}>
+          Status:&nbsp;
           {status}
         </p>
         <p className="character-full">
+          Species:&nbsp;
           {species}
         </p>
         <p className="character-full">
           {type}
         </p>
         <p className="character-full">
+          Gender:&nbsp;
           {gender}
+        </p>
+        <p className="character-full">
+          Location:&nbsp;
+          {location}
         </p>
       </div>
     </div>

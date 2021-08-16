@@ -37,27 +37,6 @@
   border: 2px solid rgb(75, 48, 107);
 }
 
-/* .button-container {
-  margin: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.button {
-  text-transform: uppercase;
-  padding: 7px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: 2px solid rgb(75, 48, 107);
-  background-color: crimson;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.button:hover {
-  color: crimson;
-  background-color: black;
-} */
-
 .modal-character {
   height: 100vh;
   width: 100vw;
@@ -100,7 +79,15 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 450px) {
+.norm {
+  color: green;
+}
+
+.bad {
+  color: red;
+}
+
+@media (max-width: 520px) {
   .form {
     flex-direction: column;
   }

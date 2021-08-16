@@ -176,8 +176,9 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 520px) {
   .navbar {
+    width: 520px;
     align-items: center;
     text-align: center;
   }

@@ -5,6 +5,7 @@ import { Characters } from './pages/Characters';
 import { Episodes } from './pages/Episodes';
 import { Locations } from './pages/Locations';
 import { MyWatchList } from './pages/MyWatchList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {

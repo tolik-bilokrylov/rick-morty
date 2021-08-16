@@ -18,3 +18,10 @@
   color: crimson;
   background-color: black;
 }
+
+@media (max-width: 520px) {
+  .button-container {
+    width: 460px;
+    margin: 15px auto;
+  }
+}

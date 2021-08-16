@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CharacterInfo } from './CharacterInfo';
 
-export function Character({ id, name, img, status, species, type, gender }) {
+export function Character({ id, name, img, status, species, type, gender, location }) {
   const [modalActive, setModalActive] = useState(false);
 
   return (
@@ -31,6 +31,7 @@ export function Character({ id, name, img, status, species, type, gender }) {
         gender={gender}
         name={name}
         img={img}
+        location={location}
       />
     </div>
   )

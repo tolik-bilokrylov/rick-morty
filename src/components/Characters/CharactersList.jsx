@@ -102,6 +102,7 @@ export function CharactersList() {
             gender={character.gender}
             name={character.name}
             img={character.image}
+            location={character.location.name}
           />
         ))}
       </div>

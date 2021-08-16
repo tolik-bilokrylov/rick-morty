@@ -3,7 +3,6 @@ import axios from 'axios';
 import { EpisodesForm } from './EpisodesForm';
 import { Buttons } from '../Buttons';
 import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './EpisodesList.css';
 
@@ -26,7 +25,7 @@ export function EpisodesList() {
       })
   }, [pageEpisodes]);
 
-  const headers = ["id", "name", "air_date", "episode", "created"]
+  const headers = ["id", "name", "air_date", "episode", "created"];
   const filterEpisodes = useMemo(() => {
     let result = episodes;
     result = result.filter((episode) => episode.name.toLowerCase().includes(name.toLowerCase()));
@@ -50,7 +49,7 @@ export function EpisodesList() {
         <thead>
           <tr style={{textTransform: 'capitalize', color: 'yellow'}}>
             {headers.map(title => (
-              <th>
+              <th key={title}>
                 {title}
               </th>
             ))}
@@ -60,7 +59,7 @@ export function EpisodesList() {
           {filterEpisodes.map(episode => (
             <tr key={episode.id}>
               {headers.map(key => (
-                <td>{episode[key]}</td>
+                <td  key={key}>{episode[key]}</td>
               ))}
             </tr>
           ))}

@@ -2,9 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { LocationsForm } from './LocationsForm';
 import { Buttons } from '../Buttons';
-
 import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './LocationList.css';
 
@@ -68,7 +66,7 @@ export function LocationsList() {
         <thead>
           <tr>
             {headers.map(title => (
-              <th style={{textTransform: 'capitalize', color: 'yellow'}}>
+              <th key={title} style={{textTransform: 'capitalize', color: 'yellow'}}>
                 {title}
               </th>
             ))}
@@ -78,7 +76,7 @@ export function LocationsList() {
           {filterLocations.map(location => (
             <tr key={location.id}>
               {headers.map(key => (
-                <td>{location[key]}</td>
+                <td key={key}>{location[key]}</td>
               ))}
             </tr>
           ))}
