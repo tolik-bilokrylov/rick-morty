@@ -1,7 +1,7 @@
 import React from 'react';
-import LocationsList from '../components/Locations/LocationsList';
+import { LocationsList } from '../components/Locations';
 
-export default function Locations() {
+export function Locations() {
   return (
     <>
       <LocationsList />

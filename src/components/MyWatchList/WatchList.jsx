@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Watch from './Watch';
-import WatchForm from './WatchForm';
+import { Watch } from './Watch';
+import { WatchForm } from './WatchForm';
 
 import './MyWatch.css';
 
-function WatchList() {
+export function WatchList() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
@@ -70,6 +70,4 @@ function WatchList() {
       />
     </div>
   )
-}
-
-export default WatchList;
+};

@@ -1,7 +1,7 @@
 import React from 'react';
-import WatchList from '../components/MyWatchList/WatchList';
+import { WatchList } from '../components/MyWatchList';
 
-export default function MyWatchList() {
+export function MyWatchList() {
   return (
     <>
       <WatchList />

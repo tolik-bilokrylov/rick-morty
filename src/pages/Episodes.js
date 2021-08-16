@@ -1,7 +1,7 @@
 import React from 'react';
-import EpisodesList from '../components/Episodes/EpisodesList';
+import { EpisodesList } from '../components/Episodes';
 
-export default function Episodes() {
+export function Episodes() {
   return (
     <>
       <EpisodesList />

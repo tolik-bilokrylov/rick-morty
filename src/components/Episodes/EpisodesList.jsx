@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import EpisodesForm from './EpisodesForm';
-import Button from './Button';
+import { EpisodesForm } from './EpisodesForm';
+import { Buttons } from '../Buttons';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +9,7 @@ import './EpisodesList.css';
 
 import { urlEpisodes } from '../../api/api';
 
-function EpisodessList() {
+export function EpisodesList() {
   const [episodes, setEpisodes] = useState([]);
   const [info, setInfo] = useState({});
   const [page, setPage] = useState(1);
@@ -36,7 +36,7 @@ function EpisodessList() {
   
   return (
     <>
-      <Button
+      <Buttons
         page={page}
         setPage={setPage}
         prev={info.prev}
@@ -69,5 +69,3 @@ function EpisodessList() {
     </>
   );
 };
-
-export default EpisodessList;

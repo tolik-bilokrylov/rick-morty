@@ -1,6 +1,7 @@
 import React from 'react';
+import './Buttons.css';
 
-function Button({ page, setPage, prev, pages }) {
+export function Buttons({ page, setPage, prev, pages }) {
   return (
     <div className="button-container">
       <button
@@ -21,6 +22,4 @@ function Button({ page, setPage, prev, pages }) {
       </button>
     </div>
   )
-}
-
-export default Button;
+};

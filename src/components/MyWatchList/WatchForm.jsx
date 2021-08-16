@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function WatchForm(props) {
+export function WatchForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
   const inputRef = useRef(null);
 
@@ -39,6 +39,4 @@ function WatchForm(props) {
       </>
     </form>
   );
-}
-
-export default WatchForm;
+};

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar() {
+export function Navbar() {
   const [click, setClick] = useState(false);
   const [navbar, setNavbar] = useState(false);
 
@@ -72,6 +72,4 @@ function Navbar() {
       </nav>
     </>
   );
-}
-
-export default Navbar;
+};

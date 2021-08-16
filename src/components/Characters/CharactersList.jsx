@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import Character from './Character';
-import Button from './Button';
-import CharacterForm from './CharactersForm';
+import { Character } from './Character';
+import { Buttons } from '../Buttons';
+import { CharacterForm } from './CharactersForm';
 
 import './CharactersList.css';
 
 import { urlCharacters } from '../../api/api';
 
-
-function CharactersList() {
+export function CharactersList() {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState({});
   const [statusGender, setStatusGender] = useState("all")
@@ -80,7 +79,7 @@ function CharactersList() {
   
   return (
     <div className="field">
-      <Button
+      <Buttons
         page={page}
         setPage={setPage}
         pages={info.pages}
@@ -109,5 +108,3 @@ function CharactersList() {
     </div>
   );
 };
-
-export default CharactersList;

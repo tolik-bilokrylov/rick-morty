@@ -37,7 +37,7 @@
   border: 2px solid rgb(75, 48, 107);
 }
 
-.button-container {
+/* .button-container {
   margin: 15px;
   display: flex;
   justify-content: space-between;
@@ -56,7 +56,7 @@
 .button:hover {
   color: crimson;
   background-color: black;
-}
+} */
 
 .modal-character {
   height: 100vh;

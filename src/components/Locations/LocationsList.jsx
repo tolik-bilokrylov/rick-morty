@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import LocationsForm from './LocationsForm';
-import Button from './Button';
+import { LocationsForm } from './LocationsForm';
+import { Buttons } from '../Buttons';
 
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,7 +10,7 @@ import './LocationList.css';
 
 import { urlLocations } from '../../api/api';
 
-function LocationsList() {
+export function LocationsList() {
   const [locations, setLocations] = useState([]);
   const [info, setInfo] = useState({});
   const [name, setName] = useState("")
@@ -50,7 +50,7 @@ function LocationsList() {
   
   return (
     <>
-      <Button
+      <Buttons
         page={page}
         setPage={setPage}
         prev={info.prev}
@@ -87,5 +87,3 @@ function LocationsList() {
     </>
   );
 };
-
-export default LocationsList;

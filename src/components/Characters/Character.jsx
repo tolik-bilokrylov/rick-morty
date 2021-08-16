@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import CharacterInfo from './CharacterInfo';
+import { CharacterInfo } from './CharacterInfo';
 
-
-
-function Character({ id, name, img, status, species, type, gender }) {
+export function Character({ id, name, img, status, species, type, gender }) {
   const [modalActive, setModalActive] = useState(false);
 
   return (
@@ -36,6 +34,4 @@ function Character({ id, name, img, status, species, type, gender }) {
       />
     </div>
   )
-}
-
-export default Character;
+};

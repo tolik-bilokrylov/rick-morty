@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus }) {
+export function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus }) {
   const statusByGender = (event) => {
     console.log(event.target.value)
     setStatusGender(event.target.value)
@@ -47,6 +47,4 @@ function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStatus }) {
       </select>
     </form>
   )
-}
-
-export default CharacterForm;
+};

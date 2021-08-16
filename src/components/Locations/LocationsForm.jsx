@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LocationsForm({ name, type, dimension, setName, setType, setDimension }) {
+export function LocationsForm({ name, type, dimension, setName, setType, setDimension }) {
 
   return (
     <form className="form-locations">
@@ -27,6 +27,4 @@ function LocationsForm({ name, type, dimension, setName, setType, setDimension }
       />
       </form>
   )
-}
-
-export default LocationsForm;
+};

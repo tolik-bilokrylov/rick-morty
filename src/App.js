@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Characters from './pages/Characters';
-import Episodes from './pages/Episodes';
-import Locations from './pages/Locations';
-import MyWatchList from './pages/MyWatchList';
+import { Navbar } from './components/Navbar';
+import { Characters } from './pages/Characters';
+import { Episodes } from './pages/Episodes';
+import { Locations } from './pages/Locations';
+import { MyWatchList } from './pages/MyWatchList';
 import './App.css';
 
 function App() {

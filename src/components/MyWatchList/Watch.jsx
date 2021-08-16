@@ -2,7 +2,7 @@ import React from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { FaCheck } from 'react-icons/fa';
 
-const Watch = ({ todos, completeTodo, removeTodo }) => {
+export const Watch = ({ todos, completeTodo, removeTodo }) => {
 
   return todos.map((todo, index) => (
     <div
@@ -28,5 +28,3 @@ const Watch = ({ todos, completeTodo, removeTodo }) => {
     </div>
   ));
 };
-
-export default Watch;

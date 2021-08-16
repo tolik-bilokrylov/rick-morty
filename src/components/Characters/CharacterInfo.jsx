@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CharacterInfo({ active, setActive, name, status, species, type, gender, img }) {
+export function CharacterInfo({ active, setActive, name, status, species, type, gender, img }) {
   return (
     <div
       className={active ? "modal-character active" : "modal-character"}
@@ -27,6 +27,4 @@ function CharacterInfo({ active, setActive, name, status, species, type, gender,
       </div>
     </div>
   )
-}
-
-export default CharacterInfo;
+};

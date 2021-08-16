@@ -1,7 +1,7 @@
 import React from 'react';
-import CharactersList from '../components/Characters/CharactersList';
+import { CharactersList } from '../components/Characters';
 
-export default function Characters() {
+export function Characters() {
   return (
     <>
       <CharactersList />

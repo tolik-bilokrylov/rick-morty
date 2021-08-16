@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EpisodesForm({ name, setName }) {
+export function EpisodesForm({ name, setName }) {
 
   return (
     <form className="form-episodes">
@@ -12,6 +12,4 @@ function EpisodesForm({ name, setName }) {
       />
     </form>
   )
-}
-
-export default EpisodesForm;
+};
