@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
       <Switch>
-        <Route exact path={'/characters'} component={Characters} />
+        <Route exact path={'/'} component={Characters} />
         <Route exact path={'/episodes'} component={Episodes} />
         <Route exact path={'/locations'} component={Locations} />
         <Route exact path={'/myWatchList'} component={MyWatchList} />

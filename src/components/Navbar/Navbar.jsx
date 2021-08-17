@@ -33,7 +33,7 @@ export function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link
-                to='/characters'
+                to='/'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
