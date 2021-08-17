@@ -14,10 +14,10 @@ function App() {
     <>
       <Navbar />
       <Switch>
-        <Route path='/characters' component={Characters} />
-        <Route path='/episodes' component={Episodes} />
-        <Route path='/locations' component={Locations} />
-        <Route path='/myWatchList' component={MyWatchList} />
+        <Route exact path={'/characters'} component={Characters} />
+        <Route exact path={'/episodes'} component={Episodes} />
+        <Route exact path={'/locations'} component={Locations} />
+        <Route exact path={'/myWatchList'} component={MyWatchList} />
       </Switch>
     </>
   );
