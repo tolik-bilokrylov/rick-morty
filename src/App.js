@@ -12,7 +12,7 @@ function App() {
   
   return (
     <>
-      <Router>
+      <Router basename="/rick-morty">
         <Navbar />
         <Switch>
           <Route path='/characters' component={Characters} />

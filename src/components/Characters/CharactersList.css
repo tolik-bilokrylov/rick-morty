@@ -91,4 +91,12 @@
   .form {
     flex-direction: column;
   }
+  .modal-character {
+    width: 520px;
+    top: 150px;
+    height: 80vh;
+  }
+  .character-content.active {
+    transform: scale(0.7);
+  }
 }

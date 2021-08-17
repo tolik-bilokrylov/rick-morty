@@ -4,6 +4,7 @@ import { CharacterInfo } from './CharacterInfo';
 export function Character({ character }) {
   const [modalActive, setModalActive] = useState(false);
   const { id, name, image, status, species, type, gender, location } = character;
+  
   return (
     <div
       className="card"

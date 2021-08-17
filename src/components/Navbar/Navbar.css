@@ -178,7 +178,7 @@
 
 @media screen and (max-width: 520px) {
   .navbar {
-    width: 520px;
+    width: 100%;
     align-items: center;
     text-align: center;
   }
@@ -188,8 +188,8 @@
   }
 }
 
-@media screen and (min-width: 1800px) {
+/* @media screen and (min-width: 1800px) {
   .navbar-logo {
     width: 500px;
   }
-}
+} */
