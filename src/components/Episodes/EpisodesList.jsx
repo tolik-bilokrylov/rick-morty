@@ -45,26 +45,26 @@ export function EpisodesList() {
         name={name}
         setName={setName}
       />
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr style={{textTransform: 'capitalize', color: 'yellow'}}>
-            {headers.map(title => (
-              <th key={title}>
-                {title}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {filterEpisodes.map(episode => (
-            <tr key={episode.id}>
-              {headers.map(key => (
-                <td  key={key}>{episode[key]}</td>
+        <Table responsive striped bordered hover variant="dark">
+          <thead>
+            <tr style={{textTransform: 'capitalize', color: 'yellow'}}>
+              {headers.map(title => (
+                <th key={title}>
+                  {title}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {filterEpisodes.map(episode => (
+              <tr key={episode.id}>
+                {headers.map(key => (
+                  <td  key={key}>{episode[key]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </Table>
     </>
   );
 };

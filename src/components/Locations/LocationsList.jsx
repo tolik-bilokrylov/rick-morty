@@ -62,7 +62,7 @@ export function LocationsList() {
         dimension={dimension}
         setDimension={setDimension}
       />
-      <Table striped bordered hover variant="dark">
+      <Table responsive striped bordered hover variant="dark">
         <thead>
           <tr>
             {headers.map(title => (

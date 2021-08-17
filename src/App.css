@@ -12,6 +12,10 @@ body {
   margin: 0 auto;
 }
 
+.react-bootstrap-table table {
+  table-layout: auto;
+}
+
 /* @media (max-width: 520px) {
   body {
     width: 520px;
