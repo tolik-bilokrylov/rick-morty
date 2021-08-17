@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Characters } from './pages/Characters';
 import { Episodes } from './pages/Episodes';
@@ -12,15 +12,13 @@ function App() {
   
   return (
     <>
-      <Router basename="/rick-morty">
-        <Navbar />
-        <Switch>
-          <Route path='/characters' component={Characters} />
-          <Route path='/episodes' component={Episodes} />
-          <Route path='/locations' component={Locations} />
-          <Route path='/myWatchList' component={MyWatchList} />
-        </Switch>
-      </Router>
+      <Navbar />
+      <Switch>
+        <Route path='/characters' component={Characters} />
+        <Route path='/episodes' component={Episodes} />
+        <Route path='/locations' component={Locations} />
+        <Route path='/myWatchList' component={MyWatchList} />
+      </Switch>
     </>
   );
 }

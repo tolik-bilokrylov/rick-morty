@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 export function Navbar() {
@@ -23,49 +23,49 @@ export function Navbar() {
     <>
       <nav className={navbar ? 'navbar active' : 'navbar'} style={{ position: 'sticky' }}>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <NavLink to={'/'} className='navbar-logo' onClick={closeMobileMenu}>
             Rick and Morty
             <i className="fas fa-globe-europe"/>
-          </Link>
+          </NavLink>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link
-                to='/characters'
+              <NavLink
+                to={'/characters'}
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Characters
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/episodes'
+              <NavLink
+                to={'/episodes'}
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Episodes
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/locations'
+              <NavLink
+                to={'/locations'}
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Locations
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/myWatchList'
+              <NavLink
+                to={'/myWatchList'}
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 My watch list
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
