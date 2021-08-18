@@ -17,6 +17,8 @@ export function LocationsList() {
   const [page, setPage] = useState(1);
 
   let pageLocations = `${urlLocations}/?page=${page}`;
+
+  const dataCreated = locations.map(location => location.created = location.created.substr(0, 10))
   
   useEffect(() => {
     axios.get(pageLocations)
@@ -76,7 +78,10 @@ export function LocationsList() {
           {filterLocations.map(location => (
             <tr key={location.id}>
               {headers.map(key => (
-                <td key={key}>{location[key]}</td>
+                <td key={key}>{location[key] === "created"
+                  ? dataCreated
+                  : location[key]}
+                </td>
               ))}
             </tr>
           ))}

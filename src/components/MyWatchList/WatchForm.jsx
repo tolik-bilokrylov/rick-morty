@@ -26,7 +26,7 @@ export function WatchForm(props) {
     <form onSubmit={handleSubmit} className='todo-form'>
       <>
         <input
-          placeholder='Add a todo'
+          placeholder='Add a episode'
           value={input}
           onChange={handleChange}
           name='text'

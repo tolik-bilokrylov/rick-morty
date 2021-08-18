@@ -42,7 +42,7 @@ export function CharacterForm({ setStatusGender, setStatusSpecies, setStatusStat
       >
         <option value="all">All</option>
         <option value="dead">Dead</option>
-        <option value="alive">Aliev</option>
+        <option value="alive">Alive</option>
         <option value="unknown">unknown</option>
       </select>
     </form>
