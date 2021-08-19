@@ -1,6 +1,6 @@
 [DEMO LINK](https://tolik-bilokrylov.github.io/rick-morty/).
 
-Application using React Hooks and Librarie Bootstrap;
+Application using React Hooks and Library Bootstrap;
 
 Functional:
 - Implement HashRouter;
